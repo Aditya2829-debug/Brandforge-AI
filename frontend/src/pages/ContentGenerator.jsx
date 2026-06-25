@@ -19,11 +19,11 @@ export default function ContentGenerator() {
 	const [audience, setAudience] = useState('early-stage startup founders');
 	const [tone, setTone] = useState('Professional');
 	const [format, setFormat] = useState('LinkedIn post');
-
 	const draft = useMemo(
 		() => buildDraft({ topic, audience, tone, format }),
 		[topic, audience, tone, format],
 	);
+	const apiEndpoint = '/api/content/generate';
 
 	return (
 		<section className="panel panel--lift">
@@ -32,7 +32,7 @@ export default function ContentGenerator() {
 					<p className="eyebrow">Content Studio</p>
 					<h2>Generate campaign-ready ideas.</h2>
 				</div>
-				<span className="chip chip--accent">Live draft</span>
+				<span className="chip chip--accent">API ready</span>
 			</div>
 
 			<div className="form-grid">
@@ -79,8 +79,8 @@ export default function ContentGenerator() {
 			</div>
 
 			<div className="panel__footer">
+				<a className="button button--ghost" href={apiEndpoint} target="_blank" rel="noreferrer">Open API endpoint</a>
 				<button className="button button--primary" type="button">Generate variation</button>
-				<button className="button button--ghost" type="button">Save prompt</button>
 			</div>
 		</section>
 	);

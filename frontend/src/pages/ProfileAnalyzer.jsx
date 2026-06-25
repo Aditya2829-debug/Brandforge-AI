@@ -13,8 +13,8 @@ function summarizeProfile(profile) {
 
 export default function ProfileAnalyzer() {
 	const [profile, setProfile] = useState('@aditya_brandforge');
-
 	const summary = useMemo(() => summarizeProfile(profile), [profile]);
+	const apiEndpoint = '/api/profile/analyze';
 
 	return (
 		<section className="panel panel--soft">
@@ -23,7 +23,7 @@ export default function ProfileAnalyzer() {
 					<p className="eyebrow">Profile Lens</p>
 					<h2>Measure brand trust in one glance.</h2>
 				</div>
-				<span className="chip">Snapshot</span>
+				<span className="chip">API ready</span>
 			</div>
 
 			<label className="field">
@@ -52,8 +52,8 @@ export default function ProfileAnalyzer() {
 			</div>
 
 			<div className="panel__footer">
+				<a className="button button--ghost" href={apiEndpoint} target="_blank" rel="noreferrer">Open API endpoint</a>
 				<button className="button button--primary" type="button">Run analysis</button>
-				<button className="button button--ghost" type="button">Export report</button>
 			</div>
 		</section>
 	);
